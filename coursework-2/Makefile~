@@ -1,0 +1,14 @@
+CXX = g++
+CXXFLAGS = -g -Wall -Wextra
+
+.PHONY :all
+all : program
+program : stockSystem.cpp stockSystem.o
+	$(CXX) $(CXXFLAGS) -o program stockSystem.cpp stockSystem.o
+stockSystem.o :stockSystem.cpp stockSystem.h
+	$(CXX) $(CXXFLAGS) -c stockSystem.cpp
+.PHONY: clean
+clean:
+	rm *.o
+	rm program
+
